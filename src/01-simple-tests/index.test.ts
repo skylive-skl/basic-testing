@@ -32,24 +32,24 @@ describe('simpleCalculator tests', () => {
   });
 
   test('should return null for invalid action', () => {
-    const result = simpleCalculator({ a: 1, b: 2, action: 'invalid' });
+    const result = simpleCalculator({ a: 1, b: 2, action: undefined });
     expect(result).toBe(null);
   });
 
   test('should return null for invalid arguments', () => {
-    const result = simpleCalculator({ a: 'invalid', b: 2, action: Action.Add });
+    const result = simpleCalculator({ a: undefined, b: 2, action: Action.Add });
     expect(result).toBe(null);
 
     const result2 = simpleCalculator({
       a: 1,
-      b: 'invalid',
+      b: undefined,
       action: Action.Add,
     });
     expect(result2).toBe(null);
 
     const result3 = simpleCalculator({
-      a: 'invalid',
-      b: 'invalid',
+      a: undefined,
+      b: undefined,
       action: Action.Add,
     });
     expect(result3).toBe(null);
